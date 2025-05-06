@@ -21,14 +21,34 @@ import data from './data.js';
  * nested array to create <td> elements in that row of the table.
  * @return HTML table element
  */
-function createTableElement(){
-    let tableElement = document.createElement('table');
-    // Add your code here to create the HTML table
-
-
-    // return the HTML table element
-    return tableElement;
-}
+function createTableElement() {
+    const table = document.createElement('table')
+    const thead = table.createTHead()
+    const tbody = table.createTBody()
+  
+    const [headers, ...rows] = data
+  
+    // Create table header row
+    const headRow = thead.insertRow()
+    headers.forEach(header => {
+      const th = document.createElement('th')
+      th.textContent = header
+      headRow.appendChild(th)
+    })
+  
+  
+    // Populate the <tbody> of the table.
+    rows.forEach(rowData => {
+      const row = tbody.insertRow()
+      rowData.forEach(cellData => {
+        const td = row.insertCell()
+        td.textContent = cellData
+      })
+    })
+  
+    return table
+  }
+  
 
 // Don't change anything below this comment
 document.addEventListener('DOMContentLoaded', function() {

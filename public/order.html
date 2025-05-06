@@ -14,6 +14,13 @@
             <form id="orderForm" action="submitOrder" method="GET">
                 <fieldset>
                     <!-- Add HTML code here for the inputs. Do not change anything else in this file -->
+                    <legend>Order Information</legend>
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company" required>
+                    
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required>
+                    
                 </fieldset>
                 <button type="submit">Submit Order</button>
             </form>
